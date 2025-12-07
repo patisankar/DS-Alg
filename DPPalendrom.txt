@@ -6,7 +6,23 @@ s = "mokkori"
 
 Some of its substrings are [m, o, k, r, i, mo, ok, mok, okk, kk, okko]. There are 7 distinct palindromes [m, o, k, r, i, kk, okko].
 
-Approach1: went wrong
+Brute-force 
+==========
+Step 1 — Generate all substrings
+
+i from 0..n-1
+
+j from i..n-1
+→ O(n²) substrings
+
+Step 2 — For each substring, check palindrome
+
+Comparing characters from left & right
+→ O(n)
+
+ O(n^3)
+
+Approach2: went wrong
 ======================
 with recurssion I could get all the sub palendrom sub strings from main string. turn out it is simple idea 
 expand around center (odd) , expand around center(even)
@@ -14,4 +30,158 @@ expand around center (odd) , expand around center(even)
 Approach2: DP
 ============
 
+When the problem only needs contiguous substrings
+
+Expand-around-center only works for substrings.
+
+DP is unnecessarily heavy.
+
+
+I chose DP because the problem has overlapping subproblems and optimal substructure.
+Checking whether s[i..j] is a palindrome depends entirely on s[i+1..j-1].
+Without DP, we would recompute the same substring many times, giving O(n³) complexity.
+Using a bottom-up DP table allows us to reuse results of smaller substrings and reduce the runtime to O(n²), which is optimal for this class of problems.
+
+DP Recurrence Rule (core idea)
+dp[i][j] = (s[i] == s[j]) AND (j - i <= 2 OR dp[i+1][j-1])
+
+
+Meaning:
+==========
+The outer characters must match
+
+AND the inside substring must be a palindrome
+
+For length ≤ 3, automatically true if outer chars match
+
+For length ≥ 4, we check dp[i+1][j-1]
+
+How We Fill DP Table (Correct Order)
+================
+DP must be filled from smaller substrings to larger substrings, because bigger substrings depend on smaller ones.
+
+Step 1: Length 1 substrings → always palindrome
+=====
+Mark diagonal dp[i][i] = true:
+
+dp   0    1    2    3    4
+0   [T]
+1        [T]
+2             [T]
+3                  [T]
+4                       [T]
+
+Step 2: Length 2 substrings → check if two chars equal
+======
+dp[i][i+1] = (s[i] == s[i+1])
+
+
+String "abcba":
+
+"ab" → false
+
+"bc" → false
+
+"cb" → false
+
+"ba" → false
+
+Table:
+
+   0    1    2    3    4
+0  T    F
+1       T    F
+2            T    F
+3                 T    F
+4                      T
+
+Step 3: Length 3 substrings → check outer + the inside char
+===========
+Substrings:
+
+"abc" (0..2)
+
+a != c → dp[0][2] = false
+
+"bcb" (1..3)
+
+b == b
+
+inside is "c" → dp[2][2] is true
+So dp[1][3] = true
+
+"cba" (2..4)
+
+c != a → false
+
+Update table:
+
+   0    1    2    3    4
+0  T    F    F
+1       T    F    T
+2            T    F
+3                 T    F
+4                      T
+
+Step 4: Length 4 substrings
+==========
+
+"abcb" (0..3)
+
+a != b → false
+
+"bcba" (1..4)
+
+b != a → false
+
+Step 5: Length 5 substrings (the whole string)
+========
+
+"abcba" (0..4)
+
+a == a
+
+inside substring "bcb" = dp[1][3] = true
+→ dp[0][4] = true
+
+Final table:
+
+   0    1    2    3    4
+0  T    F    F    F    T
+1       T    F    T    F
+2            T    F    F
+3                 T    F
+4                      T
+
+public static int countPalindromes(String s) {
+    int n = s.length();
+    boolean[][] dp = new boolean[n][n];
+    int count = 0;
+
+    // length 1
+    for (int i = 0; i < n; i++) {
+        dp[i][i] = true;
+        count++;
+    }
+
+    // length 2
+    for (int i = 0; i < n - 1; i++) {
+        if (s.charAt(i) == s.charAt(i + 1)) {
+            dp[i][i + 1] = true;
+            count++;
+        }
+    }
+
+    // length >= 3
+    for (int len = 3; len <= n; len++) {
+        for (int i = 0; i + len - 1 < n; i++) {
+            int j = i + len - 1;
+            if (s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1]) {
+                dp[i][j] = true;
+                count++;
+            }
+        }
+    }
+    return count;
+}
 
