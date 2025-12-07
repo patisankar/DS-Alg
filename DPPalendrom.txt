@@ -1,0 +1,17 @@
+A palindrome is a string that reads the same forwards and backwards, such as 121 or tacocat. A substring is a continuous sequence of characters within a string. Given a string s, how many unique substrings of s are palindromes?
+
+Example
+
+s = "mokkori"
+
+Some of its substrings are [m, o, k, r, i, mo, ok, mok, okk, kk, okko]. There are 7 distinct palindromes [m, o, k, r, i, kk, okko].
+
+Approach1: went wrong
+======================
+with recurssion I could get all the sub palendrom sub strings from main string. turn out it is simple idea 
+expand around center (odd) , expand around center(even)
+
+Approach2: DP
+============
+
+
