@@ -2,6 +2,35 @@ Interviewing for role, based on resume, give me elevator pitch ( tell me about y
 Your response should be under 2min, Your answer should presesnt, fast,future. For example, 
 Here is resume.
 
+Match job description and resume for preparation : Top 3 Most Important Skills & Top 3 Problems to Solve
+=============================
 you can tell it to be a career coach. You can give it a job description, ask it the most… three most important skills, paste the job description.
+Step1:  You are a career coach and interview coach. Based on following job description, list the top 3 most important skills the ideal candidate would have as 
+well as the top 3 problems that someone in this role will encounter and need to solve.
+
+Here is the job description: Paste
+Step2 :
+List out the experiences in the resume below that demonstrate each of the 3 skills. In a separate list, include all exp that show the ability to solve the 3 problems, include how the experiences relate. Use only the information found on the resume. Do not make things up. Think loud
+Here is the resume. paste
+
+Interview strategy
+====================
+Act as a hiring manager interviewing candidates for Sr software Engineer role. I will be the candidate, and you will ask me interview questions for the Sr software engineer position.
+
+Reply only as the interviewer. Ask me the questions and wait for my answers. Do not write all the conversation at once. Do not write explanations. Ask me the questions one by one like an interviewer does and wait for my answers. Begin the interview by asking me to tell you a little about my self.
+
 Tell me, what do you think are the best ways that I can demonstrate it in an interview? Okay? Include the experiences that solve those problems. Include how they relate. And you can even say, think out loud.
 to act as the hiring manager and role play
+
+Resume
+Act as a hiring manager with 20 years of exp hiring qualified candidates for Sr.software Engineer role. Analyze this job description. List the 10 most important skills and phrases. Then show how to rewirte these 3 bullets step-by-step to better match the posting while staying honest.
+Example output:
+Step1 : Identify top 10 skills/phrases
+
+Stpe2: Rewrite bullets
+
+Step3 : Final rewrite 
+
+
+Interview
+
