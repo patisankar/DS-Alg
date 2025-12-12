@@ -1,0 +1,13 @@
+# how to create adj list in graph
+
+Map<Integer, List<int[]>> adj = new HashMap<>();
+
+for(int[] time : times){
+  int source = time[0];
+  adj.computeIfAbsent(souce, k-> new ArrayList<>()).add(new int[]{time[1], time[2});
+}
+
+# priority Queue
+PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a->a[0]));
+
+Queue<Integer> q = new ArrayDeque<>();
