@@ -1,0 +1,54 @@
+ Step1: Start with
+ What if we need 
+
+The Challenge: One client, One Reality Problem
+
+The Misalignment, The friction, The questions
+
+Operational Complexity
+
+A pattern start match, the issues araise
+
+Step2: Start to slove by themselves
+
+Publish events when any change occured
+
+How client works with platform, access, authenticate.
+Consolidated view, autherization, grant access ,
+
+stetching multiple datasets
+
+Step3: Eng direction => 
+
+Every thing works , Full backward compatibility (phases). we are not solve all usecases.
+Looking 
+
+Future state
+
+Why do we need client to do this?
+
+ Inciatives, organically 
+
+Key Takeways
+
+Deep collobirativity:
+
+Feedback help shape next
+
+Fundamental 
+
+Code gaudarded,   Well presented.
+
+Different persona for  UI
+
+Cross merchant works?
+
+Questioning:
+=========
+I think there is an interesting point, 
+
+I'am 100% agree with you. 
+Single Source of truth
+
+ 
+
