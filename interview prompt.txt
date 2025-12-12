@@ -1,3 +1,7 @@
+
+=========
+Act as a hiring manager with 20 years exp hiring qualified candidates for Sr.software engineer roles. Analyse this job description. List the 10 most 
+
 Interviewing for role, based on resume, give me elevator pitch ( tell me about yourself). 
 Your response should be under 2min, Your answer should presesnt, fast,future. For example, 
 Here is resume.
@@ -22,7 +26,8 @@ Reply only as the interviewer. Ask me the questions and wait for my answers. Do 
 Tell me, what do you think are the best ways that I can demonstrate it in an interview? Okay? Include the experiences that solve those problems. Include how they relate. And you can even say, think out loud.
 to act as the hiring manager and role play
 
-Resume
+Resume Tailoring 
+==============
 Act as a hiring manager with 20 years of exp hiring qualified candidates for Sr.software Engineer role. Analyze this job description. List the 10 most important skills and phrases. Then show how to rewirte these 3 bullets step-by-step to better match the posting while staying honest.
 Example output:
 Step1 : Identify top 10 skills/phrases
