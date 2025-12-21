@@ -80,3 +80,74 @@ Prefix sums allow each combination to be evaluated in **O(1)** time.
 ### Step 1: Build Prefix Sums
 
 **Left prefix sum**
+left[i] = sum of first i cards
+
+
+**Right prefix sum**
+
+
+right[i] = sum of last i cards
+
+
+Example:
+
+
+cardPoints = [11, 49, 100, 20, 86, 29, 72]
+
+
+Left prefix:
+
+
+i: 0 1 2 3 4
+left: 0 11 60 160 180
+
+
+Right prefix:
+
+
+i: 0 1 2 3 4
+right: 0 72 101 187 207
+
+
+---
+
+### Step 2: Try All Splits
+
+For each `i` from `0` to `k`:
+
+
+score = left[i] + right[k - i]
+
+
+| i (left) | k-i (right) | score |
+|----------|-------------|-------|
+| 0        | 4           | 207   |
+| 1        | 3           | 198   |
+| 2        | 2           | 161   |
+| 3        | 1           | 232   |
+| 4        | 0           | 180   |
+
+**Maximum = 232**
+
+---
+
+### Why This Works (Interview Explanation)
+- Taking cards only affects the ends
+- Any valid pick sequence is equivalent to:
+  - some cards from the left + the rest from the right
+- Prefix sums let us evaluate all possibilities efficiently
+
+---
+
+### Complexity
+- Time: **O(n + k)**
+- Space: **O(k)**
+
+---
+
+### When to Use This Pattern
+- “Take from ends”
+- “Choose exactly k elements”
+- “Multiple left/right combinations”
+
+This is the **prefix sum enumeration** version of the same logic that sliding window sol
