@@ -15,8 +15,6 @@ Prefix sum helps us **avoid repeated counting**.
 n = 5
 sprints = [2, 4, 1, 3]
 
-yaml
-Copy code
 
 Markers: `1 2 3 4 5`
 
@@ -32,9 +30,6 @@ Sprints:
 Marker: 1 2 3 4 5
 Visits: 2 3 3 2 0
 
-yaml
-Copy code
-
 Most visits = `3`  
 Lowest marker with max visits = **2**
 
@@ -48,9 +43,6 @@ For sprint `2 → 4`:
 +1 to 2
 +1 to 3
 +1 to 4
-
-yaml
-Copy code
 
 Doing this for every sprint repeats work and is slow.
 
@@ -67,9 +59,6 @@ Example: `2 → 4`
 start +1 at 2
 stop +1 after 4
 
-yaml
-Copy code
-
 We only record **where counting starts and stops**.
 
 ---
@@ -79,8 +68,6 @@ We only record **where counting starts and stops**.
 diff[l] += 1
 diff[r + 1] -= 1
 
-yaml
-Copy code
 
 For all sprints, we only update two positions per sprint.
 
@@ -98,8 +85,6 @@ When we run prefix sum, each marker automatically gets the correct number of vis
 
 visits[i] = visits[i - 1] + diff[i]
 
-yaml
-Copy code
 
 This expands the start/stop information into real counts.
 
