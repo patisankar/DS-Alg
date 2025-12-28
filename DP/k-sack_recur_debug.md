@@ -4,6 +4,22 @@ iv       = [2, 4, 4, 5]
 articles = [2, 2, 3, 4]
 cost     = [4, 4, 6, 8]   // 2 * articles
 p = 15
+
+2nd Review:
+=========
+
+Need to find subproblem,
+dp[c] = maximum intellectual value achievable using at most c pages
+If I am allowed to read at most c pages today, what is the maximum intellectual value I can achieve?
+
+Max value we can get by reading c articles.
+dp[0] =0
+dp[1] = 
+
+
+
+Debug
+======
 Call:
 
 findMaxLearning(15, iv, articles, 0)
