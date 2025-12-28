@@ -13,8 +13,36 @@ dp[c] = maximum intellectual value achievable using at most c pages
 If I am allowed to read at most c pages today, what is the maximum intellectual value I can achieve?
 
 Max value we can get by reading c articles.
-dp[0] =0
-dp[1] = 
+
+## Transition Logic Using the Subproblem
+
+For an article with:
+
+- `w = 2 × articles[i]`  (pages consumed when read twice)
+- `v = iv[i]`            (intellectual value gained)
+
+If `c ≥ w`, then:
+
+dp[c] = max(
+dp[c], # do not take the article
+dp[c - w] + v # take the article
+)
+
+### Why this works
+
+- `dp[c - w]` already represents the **best possible intellectual value** achievable using `c - w` pages.
+- By taking the current article, we extend that optimal solution by adding `v`.
+- Taking the maximum ensures we always keep the best choice.
+
+---
+
+## Base Case
+dp[0] = 0
+
+dp[n]
+This represents the **maximum intellectual value** achievable within the full daily page limit.
+
+
 
 
 
