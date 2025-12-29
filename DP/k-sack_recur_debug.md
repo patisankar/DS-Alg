@@ -48,6 +48,8 @@ This represents the **maximum intellectual value** achievable within the full da
 
 Debug
 ======
+We will use a 2D table with the above two indexes to uniquely identify a subproblem and store its solution. At any later time, when we encounter the same subproblem, we can fetch the stored result from the table with a 
+O(1) lookup instead of recalculating that subproblem.
 Call:
 
 findMaxLearning(15, iv, articles, 0)
