@@ -7,6 +7,7 @@
    **Base case** : dp[m][n-1] = 1, dp[m-1][n] = 1
    Take min cost to reach next cell.
    ```
-   dp[m-1][n-1] = min(dp[m-1][n], dp[m][n-1]) - cost[m-1][n-1]
+   need = min(dp[m-1][n], dp[m][n-1]) - cost[m-1][n-1]
+   dp[m-1][n-1] = Math.max(1, need)
    
    ```
