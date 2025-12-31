@@ -1,7 +1,6 @@
 ### lessons
-I need to improve reframe problem rather than speed.
-
-Strip the problem to what actually matters, identify state, transistion come from rules.
+I need to improve reframe problem rather than speed. 
+I think I can quickly learn patterns, which I could solve any pattern.  Turns out it is not working. I need practice 1 problem for one pattern .
 
 Step1: Strip the Problem to What Survives
 ============
@@ -9,7 +8,7 @@ Ask only:
 
 After all operations are done, what information do I actually care about?
 
-Examples:
+**Examples:**
 
 Last digit → modulo arithmetic
 
@@ -27,3 +26,5 @@ If you are tracking more than the output requires, you are over-modeling.
 For DP,
 =========
 At step i, I know STATE, and I can choose DECISION, which changes STATE into NEW_STATE.
+
+
