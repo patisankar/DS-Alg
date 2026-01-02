@@ -95,3 +95,39 @@ Unlike WebSockets, which support two-way communication, SSE is strictly one-way:
 | Speed              | Very slow                   | Slow              | Fast             | Fast          | Fast             |
 | Schema evolution   | Excellent (with XSD)        | No built-in support | Good             | Good          | Excellent        |
 | Language support   | Excellent                   | Excellent         | Excellent        | Excellent     | Good             |
+
+### DB  & Storage
+
+#### Database Indexing Best pracises
+
+Good indexing is not about adding indexes everywhere. It’s about supporting the right queries while balancing write cost and storage.
+
+Design indexes based on real query patterns. Column order matters.
+
+Avoid over-indexing. Too many indexes slow down inserts and updates.
+
+Prefer high-selectivity columns (more unique values).
+
+Use covering indexes when possible to avoid extra table reads.
+
+Maintain indexes regularly as data grows and changes.
+
+Indexing is an ongoing optimization, not a one-time decision.
+
+### Security
+| Method                     | Description                                                                 | Pros                                                                 | Cons                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------|----------------------------------------------------------------------|
+| Basic authentication       | Sends username and password with each request, typically encoded in Base64. | Simple to implement; widely supported.                               | Insecure if not over HTTPS; credentials are repeatedly sent.         |
+| Token-based (JWT)          | Issues a token after authentication for stateless client-server communication. | Scalable; reduces server load; flexible token management.            | Requires secure storage; tokens are vulnerable if mishandled.       |
+| OAuth 2.0                  | Allows third-party authentication using existing identity provider credentials. | Improves user convenience; reduces password fatigue.                 | Complex to implement; token management can be tricky.                |
+| Multi-factor authentication (MFA) | Combines multiple verification methods (password, OTP, biometrics, etc.). | Strong security; significantly reduces unauthorized access.          | Can impact user experience; requires additional infrastructure.     |
+| SAML                       | Uses XML-based assertions for enterprise SSO between identity and service providers. | Well-suited for enterprise SSO; secure assertions.                   | Complex; requires specialized infrastructure and configuration.     |
+| OIDC                       | Extends OAuth 2.0 with authentication and user identity verification.       | Simplifies authentication; supports SSO and federated identity.      | Requires identity providers; configuration can be complex.           |
+
+
+| Authorization Model | Description                                                                 | Pros                                                                 | Cons                                                                 |
+|---------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------|----------------------------------------------------------------------|
+| RBAC                | Grants access based on a user’s assigned roles.                              | Simple to implement; easy to manage for small to medium systems.     | Inflexible at scale; role explosion in complex environments.         |
+| ABAC                | Grants access based on user, resource, and environmental attributes.        | Fine-grained, dynamic access control.                                | Complex to configure; difficult to audit and reason about.           |
+| PBAC                | Grants access using centralized policies considering attributes and context.| Highly flexible; auditable; suitable for compliance-driven systems.  | Requires policy engines and governance; higher initial complexity.   |
+| DAC                 | Access is controlled by the resource owner (user-defined permissions).      | Flexible; supports ad hoc sharing.                                   | Prone to misconfiguration; weaker security in collaborative systems. |
