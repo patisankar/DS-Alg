@@ -85,3 +85,13 @@ Unlike WebSockets, which support two-way communication, SSE is strictly one-way:
 | Error handling         | Uses standard HTTP status codes                 | Typically returns HTTP 200 with an `errors` object           | Uses its own set of status codes within the response                  |
 | Streaming              | No native support (WebSockets or polling)       | Supported via subscriptions                                  | Native support for unary, client, server, and bidirectional streaming |
 
+### data serialization
+
+| Feature            | XML                         | JSON              | Protocol Buffers | Apache Thrift | Apache Avro      |
+|--------------------|-----------------------------|-------------------|------------------|---------------|------------------|
+| Encoding           | Text-based                  | Text-based        | Binary           | Binary        | Binary           |
+| Readability        | Yes (but verbose)           | Yes               | No               | No            | No               |
+| Size               | Very large                  | Large             | Small            | Small         | Small            |
+| Speed              | Very slow                   | Slow              | Fast             | Fast          | Fast             |
+| Schema evolution   | Excellent (with XSD)        | No built-in support | Good             | Good          | Excellent        |
+| Language support   | Excellent                   | Excellent         | Excellent        | Excellent     | Good             |
