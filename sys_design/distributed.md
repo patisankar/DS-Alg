@@ -1,6 +1,8 @@
 ### Overview
 A distributed system is a group of independent nodes that work together to present themselves as a single, logical system.
 
+[Educative](https://www.educative.io/courses/grokking-system-design-fundamentals/encryption-fundamentals-for-system-security-and-data-protection)
+
 Examples:
 Google Spanner (globally distributed database)
 Apache Kafka (distributed log system)
