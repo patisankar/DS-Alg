@@ -65,6 +65,23 @@ Scalability limits: The potential speedup is often limited by the serial (non-pa
 
 ### observability
 **Metrics**: Metrics are numerical, aggregated data points collected over time, typically stored as time-series data. 	
+
 Alerting, Dashboards, Trend analysis
 **Traces**: A trace represents the end-to-end journey of a single request as it moves through multiple services.
 Each step in the journey is a span, which contains timing information and metadata. Traces are essential for pinpointing bottlenecks. They are like a package tracking history, showing every stop a request made. For example, a trace for a checkout request might show a 1200 ms total duration, composed of a 50 ms span in the checkout-service and a 1150 ms child span for a call to the inventory-service.
+
+### Communication
+Asynchronous communication is ideal for background jobs, decoupling services, and workflows where an immediate response is not required. For example, after a user places an order on an e-commerce site, asynchronous tasks such as sending a confirmation email, updating inventory, and notifying the shipping department can be triggered without requiring the user to wait.
+For communication between two different backend services, webhooks are a simple and powerful pattern for building event-driven systems.
+SSE provides a lightweight way for servers to push real-time updates to clients over a single long-lived HTTP connection.
+
+Unlike WebSockets, which support two-way communication, SSE is strictly one-way: the server streams events to the client after the connection is established. This makes SSE a good fit for scenarios where the client only needs to receive updates.
+
+| Attribute              | REST                                             | GraphQL                                                      | gRPC                                                                 |
+|------------------------|--------------------------------------------------|--------------------------------------------------------------|----------------------------------------------------------------------|
+| Performance            | Good (standard HTTP, but can be verbose)         | Variable (efficient fetching, but queries can be complex)   | Excellent (HTTP/2, binary serialization)                              |
+| Language support       | Universal (any language with an HTTP client)    | Excellent (libraries for all major languages)               | Excellent (auto-generates code for many languages)                    |
+| Tooling and ecosystem  | Vast (browsers, curl, Postman)                  | Strong (GraphiQL, Apollo, Relay)                             | Growing (gRPC-web, Envoy proxy)                                       |
+| Error handling         | Uses standard HTTP status codes                 | Typically returns HTTP 200 with an `errors` object           | Uses its own set of status codes within the response                  |
+| Streaming              | No native support (WebSockets or polling)       | Supported via subscriptions                                  | Native support for unary, client, server, and bidirectional streaming |
+
