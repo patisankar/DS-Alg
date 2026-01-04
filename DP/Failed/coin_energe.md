@@ -43,4 +43,39 @@ No movement cost before the first house.
 Two valid starting states:
 
 1. Take coins at house `0`
+   `dp[0][initialEnergy] = coins[0]`
 
+Take energy at house 0
+
+`dp[0][initialEnergy + energy[0]] = 0`
+
+---
+
+### Transition
+
+To move from house `i-1` to house `i`:
+
+- Moving costs **1 energy**
+- Only states with `e ≥ 1` are valid
+
+From a valid state `dp[i-1][e]`:
+
+`energyAfterMove = e - 1'
+
+Now choose at house `i`:
+
+#### Option 1: Take coins
+
+```
+dp[i][energyAfterMove] =
+max(dp[i][energyAfterMove],
+dp[i-1][e] + coins[i])
+```
+
+#### Option 2: Take energy
+
+```
+dp[i][energyAfterMove + energy[i]] =
+max(dp[i][energyAfterMove + energy[i]],
+dp[i-1][e])
+```
