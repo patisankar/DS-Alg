@@ -6,6 +6,8 @@ When visiting a house, Alex can collect either the energy or the coins available
 The goal is to determine the maximum number of coins Alex can collect while never having a negative energy amount.
 
 ### my approach
+Coins are the objective, energy is a constraint.
+DP must track energy explicitly because it determines reachability.
 
 take energe only it reaches 0, otherwise take coins
 
