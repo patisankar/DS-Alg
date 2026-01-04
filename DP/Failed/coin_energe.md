@@ -79,3 +79,53 @@ dp[i][energyAfterMove + energy[i]] =
 max(dp[i][energyAfterMove + energy[i]],
 dp[i-1][e])
 ```
+#### Solution
+
+```
+import java.util.*;
+
+public class Solution {
+
+    public static int getRich(long initialEnergy, List<Integer> energy, List<Integer> coins) {
+        int n = energy.size();
+
+        // Same trick as Python: shift starting energy by +1
+        int startEnergy = (int) Math.min(n, initialEnergy + 1);
+
+        // dp[i][e] = max coins after i houses with e energy
+        int[][] dp = new int[n + 1][n + 1];
+        for (int i = 0; i <= n; i++) {
+            Arrays.fill(dp[i], -1);
+        }
+
+        dp[0][startEnergy] = 0;
+
+        for (int i = 1; i <= n; i++) {
+            int houseEnergy = energy.get(i - 1);
+            int houseCoins = coins.get(i - 1);
+
+            for (int e = 1; e <= n; e++) {
+                if (dp[i - 1][e] == -1) continue;
+
+                // Option 1: take energy at house i-1
+                int newEnergy = Math.min(n, e - 1 + houseEnergy);
+                dp[i][newEnergy] = Math.max(dp[i][newEnergy], dp[i - 1][e]);
+
+                // Option 2: take coins at house i-1
+                dp[i][e - 1] = Math.max(dp[i][e - 1], dp[i - 1][e] + houseCoins);
+            }
+        }
+
+        // Can stop at any house with any energy
+        int result = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int e = 0; e <= n; e++) {
+                result = Math.max(result, dp[i][e]);
+            }
+        }
+
+        return result;
+    }
+}
+
+```
