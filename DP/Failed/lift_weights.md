@@ -53,5 +53,14 @@ private static int dfs(List<Integer> w, int i, int cap, int sum) {
     best = Math.max(best, dfs(w, i + 1, cap - w.get(i), sum + w.get(i)));
 
     return best;
+
 }
 ```
+### DP
+```
+dp[c] = true
+means:
+Using the plates processed so far,
+I can form total weight exactly c
+```
+
