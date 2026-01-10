@@ -3,6 +3,12 @@ A distributed system is a group of independent nodes that work together to prese
 
 [Educative](https://www.educative.io/courses/grokking-system-design-fundamentals/encryption-fundamentals-for-system-security-and-data-protection)
 
+1. Communication:
+2. Storage:
+   1. ACID , BASE (Basically Availability Soft state Eventual Consistency)
+      A - Atomocity , all-or-nothing, partial updates are danger, bank transfer
+      C - Consistency, 
+
 Examples:
 Google Spanner (globally distributed database)
 Apache Kafka (distributed log system)
