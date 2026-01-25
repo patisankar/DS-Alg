@@ -1,4 +1,4 @@
-# Universal Pólya-Based Problem-Solving Framework (All Patterns)
+# Universal Pólya-Based Problem-Solving
 
 ## Pólya Step 1 — Understand the Problem
 Ask in algorithm terms:
@@ -75,25 +75,54 @@ This determines control flow.
 - If I explain this in 1 minute, what must I mention?
 - What concepts appear everywhere?
 
----
+### 1️⃣ How does the program start?
 
-### 3️⃣ What runs first?
-- Who starts execution?
-- What is the entry point?
+- **Java**
+  - `public static void main(String[] args)`
 
----
+- **Spring Boot**
+  - `SpringApplication.run(...)`
 
-### 4️⃣ What causes change?
-- What events trigger my code?
-- What runs automatically vs explicitly?
+- **Rails**
+  - `rails server`
 
----
-
-### 5️⃣ What repeats every time?
-- What patterns do I write again and again?
-- What can I stop rethinking?
+- **Microservices**
+  - Each service starts its own server/process
 
 ---
+
+### 2️⃣ When does my code get called?
+
+- **Java**
+  - When *I* call a method
+
+- **Spring Boot**
+  - When an HTTP request hits a controller
+
+- **Rails**
+  - When a route matches a request
+
+- **Microservices**
+  - When another service (or client) sends a request/message
+
+---
+
+### 3️⃣ What do I write again and again?
+
+- **Java**
+  - Classes, interfaces, boilerplate logic
+
+- **Spring Boot**
+  - Controller → Service → Repository
+
+- **Rails**
+  - Model → Controller → View (CRUD)
+
+- **Microservices**
+  - API endpoints, configs, logging, retries, health checks
+
+---
+
 
 ### 6️⃣ Where do bugs usually come from?
 - Lifecycle issues?
