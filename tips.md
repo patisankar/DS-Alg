@@ -63,81 +63,22 @@ This determines control flow.
   State: unresolved elements  
   Transition: conflict or completion
 
-## Simple Checklist for Learning a Language or Framework
+# 5 Ultra-Short Learning Questions for frameworks
 
-### 1️⃣ Why does it exist?
-- What problem does it solve?
-- When should I use it (and when not)?
+1️⃣ **Why?**  
+- What problem does this solve?
 
----
+2️⃣ **Core?**  
+- What 3–5 ideas matter most?
 
-### 2️⃣ What are the 3–5 core concepts?
-- If I explain this in 1 minute, what must I mention?
-- What concepts appear everywhere?
+3️⃣ **Flow?**  
+- What happens step by step?
 
-### 1️⃣ How does the program start?
+4️⃣ **My code?**  
+- Where do I write my logic?
 
-- **Java**
-  - `public static void main(String[] args)`
-
-- **Spring Boot**
-  - `SpringApplication.run(...)`
-
-- **Rails**
-  - `rails server`
-
-- **Microservices**
-  - Each service starts its own server/process
-
----
-
-### 2️⃣ When does my code get called?
-
-- **Java**
-  - When *I* call a method
-
-- **Spring Boot**
-  - When an HTTP request hits a controller
-
-- **Rails**
-  - When a route matches a request
-
-- **Microservices**
-  - When another service (or client) sends a request/message
-
----
-
-### 3️⃣ What do I write again and again?
-
-- **Java**
-  - Classes, interfaces, boilerplate logic
-
-- **Spring Boot**
-  - Controller → Service → Repository
-
-- **Rails**
-  - Model → Controller → View (CRUD)
-
-- **Microservices**
-  - API endpoints, configs, logging, retries, health checks
-
----
-
-
-### 6️⃣ Where do bugs usually come from?
-- Lifecycle issues?
-- Configuration?
-- State handling?
-
----
-
-### 7️⃣ Build one small thing
-- One request / one feature / one flow end-to-end
-
----
-
-### Memory Hook
-**Why → Core → Flow → Repeat → Build**
+5️⃣ **Cost?**  
+- What do I gain vs give up?
 
 
 # How to Learn Coding Patterns So They Actually Stick
