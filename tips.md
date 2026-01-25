@@ -61,7 +61,55 @@ This determines control flow.
 
 - **Stack / Queue**  
   State: unresolved elements  
-  Transition: conflict or completion  
+  Transition: conflict or completion
+
+## Simple Checklist for Learning a Language or Framework
+
+### 1️⃣ Why does it exist?
+- What problem does it solve?
+- When should I use it (and when not)?
+
+---
+
+### 2️⃣ What are the 3–5 core concepts?
+- If I explain this in 1 minute, what must I mention?
+- What concepts appear everywhere?
+
+---
+
+### 3️⃣ What runs first?
+- Who starts execution?
+- What is the entry point?
+
+---
+
+### 4️⃣ What causes change?
+- What events trigger my code?
+- What runs automatically vs explicitly?
+
+---
+
+### 5️⃣ What repeats every time?
+- What patterns do I write again and again?
+- What can I stop rethinking?
+
+---
+
+### 6️⃣ Where do bugs usually come from?
+- Lifecycle issues?
+- Configuration?
+- State handling?
+
+---
+
+### 7️⃣ Build one small thing
+- One request / one feature / one flow end-to-end
+
+---
+
+### Memory Hook
+**Why → Core → Flow → Repeat → Build**
+
 
 # How to Learn Coding Patterns So They Actually Stick
 
