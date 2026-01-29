@@ -1,20 +1,20 @@
 ### patten
 window size is one zero
 start = 0
+```
+ for end = 0 to array.length
 
-loop through elemen => end (incrent)
-
-  if( element == 0) // rely on end
+  if( array[end] == 0) // rely on end
      count++
   
   
   while( count > k)
-   if(element == 0) //rely on start
+   if(array[start] == 0) //rely on start
      count--
    start++;
 
   res = Max (res, end-start)
-
+```
 
 example
 ======
