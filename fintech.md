@@ -30,7 +30,7 @@ _Targeting Fintech + Enterprise Java Roles_
 
 ### Goal
 - Solve each in < 25 minutes  
-- Clean Java code  
+- Clean Ruby/Java code  
 - Handle edge cases  
 - Explain time and space complexity  
 
