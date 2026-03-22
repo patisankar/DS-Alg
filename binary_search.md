@@ -29,3 +29,21 @@ Use **greedy** to narrow down left and right **boundaries** in binary search.
 
     throw new RuntimeException("Cannot find a solution");
 ```
+### Real case - what does the mean monotonicity
+The mental trick is to stop trying to find the answer directly.
+
+Instead, change the question. Ask a much simpler, "Yes/No" question:
+
+"If I set a maximum allowed sum (let's call it X), can I split the array into k bags (or fewer)?"
+
+Now, think about the possible answers for X:
+
+If you can't do it with a limit of X = 17, you definitely can't do it with X = 16, X = 15, etc.
+
+If you can do it with a limit of X = 18, you definitely can do it with X = 19, X = 20, etc. (a bigger bag only makes it easier).
+
+This creates a "sorted" range of answers: [No, No, No, No, Yes, Yes, Yes, Yes]
+
+We are looking for the very first "Yes". This is a perfect job for Binary Search.
+
+
