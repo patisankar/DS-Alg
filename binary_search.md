@@ -44,6 +44,24 @@ If you can do it with a limit of X = 18, you definitely can do it with X = 19, X
 
 This creates a "sorted" range of answers: [No, No, No, No, Yes, Yes, Yes, Yes]
 
+### Finding minimum and finding maximum 
+```
+left, right = min(search_space), max(search_space) + 1
+    while left < right:
+        mid = left + (right - left) // 2
+        if condition(mid):
+            left = mid + 1
+        else
+            right = mid
+    return left - 1
+```
+There are 3 differences:
+
+1. Search space is from min to max+1. Since for this kind of left closed right open search space, setting right = max+1 could let us don't miss the case res = max.
+2. When the condition meets we need to set left = mid + 1, so that we can squeeze the next search space to [mid+1, right) to get the max value meets the condition.
+3. return left - 1. I think it's because when we meets the condition, we always do left = mid+1, which is equal to mid = left-1. So when the loop ends (when left == right), nums[left] will definitely not equal to the target, so we need to return left -1.
+Please let me know how you think. Or anyone else can give me more advice.
+
 We are looking for the very first "Yes". This is a perfect job for Binary Search.
 
 
