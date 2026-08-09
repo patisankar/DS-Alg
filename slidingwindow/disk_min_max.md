@@ -45,11 +45,19 @@ Let's take an example here.  Suppose we have the following array: [3,5,1,2,4,3,5
  
 
 i = 0, q = [3],
+
 i = 1, q = [3,5],
-i = 2, q = [1], (3 and 5 removed as they are larger than 1.) Answer for window [0,2] is 1
+
+i = 2, q = [1], (3 and 5 removed as they are larger than 1.) 
+
+Answer for window [0,2] is 1
+
 i = 3, q = [1,2], Answer for window [1,3] is 1
+
 i = 4, q = [1,2,4], Answer for window [2,4] is 1
+
 i = 5, q = [2,3], (1 removed as it was out of the current window, 4 removed as it was larger than 3.) Answer for window [3,5] is 2
+
 i = 6, q = [3,5], (2 removed as it was out of the current window) Answer for window [4,6] is 3
  
 The values in the deque are always in increasing order from front to back.
