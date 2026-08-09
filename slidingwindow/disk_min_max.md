@@ -59,6 +59,33 @@ i = 4, q = [1,2,4], Answer for window [2,4] is 1
 i = 5, q = [2,3], (1 removed as it was out of the current window, 4 removed as it was larger than 3.) Answer for window [3,5] is 2
 
 i = 6, q = [3,5], (2 removed as it was out of the current window) Answer for window [4,6] is 3
+
+```
+function segment(window_size, array)
+
+    queue = empty
+    answer = 0
+
+    for each index i:
+
+        # 1. Remove expired elements
+        remove from FRONT
+        while element is outside window
+
+        # 2. Maintain increasing order
+        remove from BACK
+        while element >= current element
+
+        # 3. Add current element
+        add current index to BACK
+
+        # 4. Process complete window
+        if window is full:
+            window_min = FRONT of queue
+            answer = max(answer, window_min)
+
+    return answer
+```
  
 The values in the deque are always in increasing order from front to back.
  
