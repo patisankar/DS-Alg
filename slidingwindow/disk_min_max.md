@@ -36,5 +36,21 @@ end
 
 What a **monotonic deque** does
 Instead of storing all window elements, it stores only candidates for the minimum.
+
+### Explanation
+Our goal is to find out the maximum of the minima of all the windows of a given size. This can be calculated efficiently in linear time complexity using monotonic deque. We will iterate over each index from left to right and maintain a monotonic deque which will store indices having values in increasing order such that no index is out of the window of size k from the current index. Now, the first element of the deque represents the index in the array which has the minimum value for the given window.
+
+Let's take an example here.  Suppose we have the following array: [3,5,1,2,4,3,5] and a window of size 3. Here, we will show what the queue looks like after processing each index.  For clarity, the values that would be pointed to are shown instead of their indices.
+
+ 
+
+i = 0, q = [3],
+i = 1, q = [3,5],
+i = 2, q = [1], (3 and 5 removed as they are larger than 1.) Answer for window [0,2] is 1
+i = 3, q = [1,2], Answer for window [1,3] is 1
+i = 4, q = [1,2,4], Answer for window [2,4] is 1
+i = 5, q = [2,3], (1 removed as it was out of the current window, 4 removed as it was larger than 3.) Answer for window [3,5] is 2
+i = 6, q = [3,5], (2 removed as it was out of the current window) Answer for window [4,6] is 3
+ 
 The values in the deque are always in increasing order from front to back.
  
