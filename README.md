@@ -1,3 +1,7 @@
+Why Use A Linked List Instead Of An Array?
+=====
+The issue with an array is it must reindex the whole array from the position of removal of any element besides the last one.
+
 Pattern: Sliding Window
 =====
 
