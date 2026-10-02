@@ -1,3 +1,6 @@
+## Deep look
+https://leetcode.com/discuss/post/786126/python-powerful-ultimate-binary-search-t-rwv8/
+
 ## important notes
 When to exit the loop? Should we use left < right or left <= right as the while loop condition? 
 
