@@ -1,70 +1,167 @@
-## Deep look
+# Binary Search Thinking Framework
+
 https://leetcode.com/discuss/post/786126/python-powerful-ultimate-binary-search-t-rwv8/
 
-## important notes
-When to exit the loop? Should we use left < right or left <= right as the while loop condition? 
+## Before Coding
 
-How to initialize the boundary variable left and right?
+1. **What am I searching for?**
+   An index, capacity, speed, day, distance, threshold, or another answer value?
+2. **What is the search space?**
+   What are the minimum and maximum possible answers?
+3. **What does `condition(mid)` mean?**
+   Write it as one yes/no question.
+4. **Is the condition monotonic?**
 
-How to update the boundary? How to choose the appropriate combination from left = mid , left = mid + 1 and right = mid, right = mid - 1?
+   ```
+   false false false true true true
+   ```
+   or:
+   ```
+   true true true false false false
+   ```
 
-Sometimes we won't even realize that the problem should be solved with binary search -- we might just turn to dynamic programming or DFS and get stuck for a very long time.
+5. **Which boundary am I finding?**
+   First true? Last true? Exact target?
+6. **What should happen when `condition(mid)` is true?**
+7. **Can `mid` still be the answer?**
+   - Yes → retain it with `right = mid` or `left = mid`.
+   - No → discard it with `left = mid + 1` or `right = mid - 1`.
+8. **Why does the search interval shrink every iteration?**
+9. **What does `left` represent after the loop?**
+10. **Should I return `left`, `right`, or `left - 1`?**
 
-As for the question "When can we use binary search?", my answer is that, If we can discover some kind of **monotonicity**, for example, if condition(k) is True then condition(k + 1) is True, then we can consider binary search.
+## While Debugging
 
-Use **greedy** to narrow down left and right **boundaries** in binary search.
+1. Does the initial range contain every possible answer?
+2. Is `condition(mid)` returning the expected result?
+3. Does each update remove part of the search space?
+4. Could `left`, `right`, and `mid` stop changing?
+5. Am I accidentally removing a valid `mid`?
+6. Am I keeping a `mid` that is known to be invalid?
+7. Is equality handled correctly?
+8. What happens with only two candidates remaining?
+9. What happens when the answer is the lower bound?
+10. What happens when the answer is the upper bound?
 
-### interview style
+Use this trace:
 
 ```
-    while (low <= high) { // use == since the high maybe the solution. 
-        long mid = (low + high) / 2;
-        if (!valid(nums, m, mid)) { // Not valid, mid is too small. Cannot split into more subarrays to meet mid. 
-            low = mid + 1; // drop the lower range
-        } else {  // valid, see if we can even make it smaller
-            if (mid == maxNum || !valid(nums, m, mid - 1)) { // there is no smaller valid value, mid is the best solution
-                return (int) mid;
-            } else {
-                high = mid - 1;
-            }
-        }
-    }
-
-    throw new RuntimeException("Cannot find a solution");
+left | right | mid | condition(mid) | next left | next right
 ```
-### Real case - what does the mean monotonicity
-The mental trick is to stop trying to find the answer directly.
 
-Instead, change the question. Ask a much simpler, "Yes/No" question:
+## After Coding
 
-"If I set a maximum allowed sum (let's call it X), can I split the array into k bags (or fewer)?"
+1. Why is the lower bound valid?
+2. Why is the upper bound valid?
+3. Why is the condition monotonic?
+4. What loop invariant does the algorithm maintain?
+5. Why does the algorithm terminate?
+6. Why is the returned value correct?
+7. What is the cost of one condition check?
+8. What is the total time complexity?
+9. What is the extra-space complexity?
+10. Which edge cases should be tested?
 
-Now, think about the possible answers for X:
+## First-True Template
 
-If you can't do it with a limit of X = 17, you definitely can't do it with X = 16, X = 15, etc.
+Use when the condition looks like:
 
-If you can do it with a limit of X = 18, you definitely can do it with X = 19, X = 20, etc. (a bigger bag only makes it easier).
-
-This creates a "sorted" range of answers: [No, No, No, No, Yes, Yes, Yes, Yes]
-
-### Finding minimum and finding maximum 
 ```
-left, right = min(search_space), max(search_space) + 1
-    while left < right:
-        mid = left + (right - left) // 2
-        if condition(mid):
-            left = mid + 1
-        else
-            right = mid
-    return left - 1
+F F F T T T
+      ↑
+   answer
 ```
-There are 3 differences:
 
-1. Search space is from min to max+1. Since for this kind of left closed right open search space, setting right = max+1 could let us don't miss the case res = max.
-2. When the condition meets we need to set left = mid + 1, so that we can squeeze the next search space to [mid+1, right) to get the max value meets the condition.
-3. return left - 1. I think it's because when we meets the condition, we always do left = mid+1, which is equal to mid = left-1. So when the loop ends (when left == right), nums[left] will definitely not equal to the target, so we need to return left -1.
-Please let me know how you think. Or anyone else can give me more advice.
+```
+while left < right
+  mid = left + (right - left) / 2
 
-We are looking for the very first "Yes". This is a perfect job for Binary Search.
+  if condition(mid)
+    right = mid
+  else
+    left = mid + 1
+  end
+end
+
+return left
+```
+
+> If `mid` works, keep it and search for something smaller. If `mid` fails, remove it and search larger values.
+
+## Last-True Template
+
+Use when the condition looks like:
+
+```
+T T T F F F
+    ↑
+ answer
+```
+
+```
+while left < right
+  mid = left + (right - left + 1) / 2
+
+  if condition(mid)
+    left = mid
+  else
+    right = mid - 1
+  end
+end
+
+return left
+```
+
+> If `mid` works, keep it and search for something larger. If `mid` fails, remove it and search smaller values.
+
+## Problem-Specific Questions
+
+After the universal questions, each problem usually needs only four more:
+
+1. How do I calculate the lower and upper bounds for this problem?
+2. How do I implement `condition(mid)`?
+3. Why is that condition monotonic?
+4. What special constraints must `condition(mid)` preserve?
+
+### Ship Packages Within D Days
+
+1. Why is the lower bound `max(weights)`?
+2. Why is the upper bound `sum(weights)`?
+3. How do I count the days required for a capacity?
+4. How do I preserve package order?
+
+### Koko Eating Bananas
+
+1. Why is the speed range `1..max(piles)`?
+2. How do I calculate hours using ceiling division?
+3. Why does increasing speed never increase the required hours?
+4. Is the total time within `H` hours?
+
+### Minimum Days to Make Bouquets
+
+1. Is making `m` bouquets possible at all?
+2. What range of days should I search?
+3. How do I count adjacent bloomed flowers?
+4. Why does waiting longer never reduce the number of possible bouquets?
+
+## Reusable Note Template
+
+```
+## Binary Search
+
+- Search value:
+- Lower bound:
+- Upper bound:
+- condition(mid):
+- Monotonic direction:
+- First true or last true:
+- Update when true:
+- Update when false:
+- Return value:
+- Condition cost:
+- Total complexity:
+- Edge cases:
+```
+
 
 
