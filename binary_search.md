@@ -8,9 +8,10 @@ https://leetcode.com/discuss/post/786126/python-powerful-ultimate-binary-search-
    An index, capacity, speed, day, distance, threshold, or another answer value?
 2. **What is the search space?**
    What are the minimum and maximum possible answers?
-3. **What does `condition(mid)` mean?**
+3. **Can I change the question into something easier to answer?**
+4. **What does `condition(mid)` mean?**
    Write it as one yes/no question.
-4. **Is the condition monotonic?**
+5. **Is the condition monotonic?**
 
    ```
    false false false true true true
@@ -20,15 +21,15 @@ https://leetcode.com/discuss/post/786126/python-powerful-ultimate-binary-search-
    true true true false false false
    ```
 
-5. **Which boundary am I finding?**
+6. **Which boundary am I finding?**
    First true? Last true? Exact target?
-6. **What should happen when `condition(mid)` is true?**
-7. **Can `mid` still be the answer?**
+7. **What should happen when `condition(mid)` is true?**
+8. **Can `mid` still be the answer?**
    - Yes → retain it with `right = mid` or `left = mid`.
    - No → discard it with `left = mid + 1` or `right = mid - 1`.
-8. **Why does the search interval shrink every iteration?**
-9. **What does `left` represent after the loop?**
-10. **Should I return `left`, `right`, or `left - 1`?**
+9. **Why does the search interval shrink every iteration?**
+10. **What does `left` represent after the loop?**
+11. **Should I return `left`, `right`, or `left - 1`?**
 
 ## While Debugging
 
