@@ -33,6 +33,18 @@ https://leetcode.com/discuss/post/786126/python-powerful-ultimate-binary-search-
 
 ## While Debugging
 
+#### Write the variable contract
+```
+Goal: find the first valid index
+
+left: index
+right: index
+mid: index
+
+condition(mid):
+points[mid] - points[0] >= threshold
+```
+
 1. Does the initial range contain every possible answer?
 2. Is `condition(mid)` returning the expected result?
 3. Does each update remove part of the search space?
@@ -114,55 +126,4 @@ return left
 ```
 
 > If `mid` works, keep it and search for something larger. If `mid` fails, remove it and search smaller values.
-
-## Problem-Specific Questions
-
-After the universal questions, each problem usually needs only four more:
-
-1. How do I calculate the lower and upper bounds for this problem?
-2. How do I implement `condition(mid)`?
-3. Why is that condition monotonic?
-4. What special constraints must `condition(mid)` preserve?
-
-### Ship Packages Within D Days
-
-1. Why is the lower bound `max(weights)`?
-2. Why is the upper bound `sum(weights)`?
-3. How do I count the days required for a capacity?
-4. How do I preserve package order?
-
-### Koko Eating Bananas
-
-1. Why is the speed range `1..max(piles)`?
-2. How do I calculate hours using ceiling division?
-3. Why does increasing speed never increase the required hours?
-4. Is the total time within `H` hours?
-
-### Minimum Days to Make Bouquets
-
-1. Is making `m` bouquets possible at all?
-2. What range of days should I search?
-3. How do I count adjacent bloomed flowers?
-4. Why does waiting longer never reduce the number of possible bouquets?
-
-## Reusable Note Template
-
-```
-## Binary Search
-
-- Search value:
-- Lower bound:
-- Upper bound:
-- condition(mid):
-- Monotonic direction:
-- First true or last true:
-- Update when true:
-- Update when false:
-- Return value:
-- Condition cost:
-- Total complexity:
-- Edge cases:
-```
-
-
 
